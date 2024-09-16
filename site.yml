@@ -3,5 +3,5 @@
   tasks:
     - name: Add text to a file
       copy:
-        content: "Hello world\n"
+        content: "Hello banan\n"
         dest: /tmp/ansible-test.txt
