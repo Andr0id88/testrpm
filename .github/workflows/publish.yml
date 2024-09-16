@@ -42,7 +42,7 @@ jobs:
 
       - name: Run rpmbuild on RPM spec to produce package
         id: rpm
-        uses: crazy-max/ghaction-rpmbuild@v1
+        uses: rpmbuild/centos7
         with:
           spec_file: ${{ env.PKG_NAME }}.spec
 
