@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Add text to a file
+      copy:
+        content: "Hello banan\n"
+        dest: /tmp/ansible-test.txt

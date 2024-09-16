@@ -1,0 +1,14 @@
+[Unit]
+Description=Run Ansible Playbook Example
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/ansible-playbook /opt/ansible/playbooks/site.yml
+WorkingDirectory=/opt/ansible/playbooks
+StandardOutput=journal
+StandardError=journal
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target
