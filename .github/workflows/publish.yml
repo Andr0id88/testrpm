@@ -40,19 +40,24 @@ jobs:
       - name: Replace version in RPM spec so correct source is downloaded when building RPM
         run: sed -Ei 's/(^Version:[[:space:]]*).*/\1${{ github.ref_name }}/' ${{ env.PKG_NAME }}.spec
 
-
       - name: Run rpmbuild on RPM spec to produce package
         id: rpm
         uses: jiro4989/build-rpm-action@v2
         with:
-          package: ${{ env.PKG_NAME }}    # Set package name here instead of spec_file
-          package_root: '.'               # Set the root directory for the package
-          version: ${{ github.ref_name }}  # Set the version based on the current Git ref
-          arch: ${{ env.ARCH }}            # Set the architecture (noarch in your case)
-          maintainer: 'Your Name'          # Set the maintainer
-          vendor: 'Your Vendor Name'       # Set the vendor
-          desc: 'Ansible playbook to add text to a file'  # Use 'desc' instead of 'description'
+          package: ${{ env.PKG_NAME }}
+          package_root: '.'
+          version: ${{ github.ref_name }}
+          arch: ${{ env.ARCH }}            # Make sure arch is set to noarch if applicable
+          maintainer: 'Your Name'
+          vendor: 'Your Vendor Name'
+          desc: 'Ansible playbook to add text to a file'
           license: 'GPL'
+
+      - name: Upload .rpm package as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.PKG_NAME }}-${{ github.ref_name }}-1.${{ env.DIST }}.${{ env.ARCH }}.rpm
+          path: rpmbuild/RPMS/noarch/*.rpm  # Updated the path to 'noarch'
 
       # - name: Run rpmbuild on RPM spec to produce package
       #   id: rpm
