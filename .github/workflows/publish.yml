@@ -42,7 +42,7 @@ jobs:
 
       - name: Run rpmbuild on RPM spec to produce package
         id: rpm
-        uses: rpmbuild/centos7@latest
+        uses: jiro4989/build-rpm-action@v2
         with:
           spec_file: ${{ env.PKG_NAME }}.spec
 
