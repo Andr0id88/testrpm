@@ -5,7 +5,7 @@ on:
       - main
 
 env:
-  DIST: el7
+  DIST: el9
   ARCH: noarch
   PKG_NAME: testrpm   # Define the package name here
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Run rpmbuild on RPM spec to produce package
         id: rpm
-        uses: naveenrajm7/rpmbuild@master
+        uses: naveenrajm7/rpmbuild@centos8
         with:
           spec_file: ${{ env.PKG_NAME }}.spec
 
