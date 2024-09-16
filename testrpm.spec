@@ -1,9 +1,9 @@
-Name: ansible-playbook-example
+Name: testrpm
 Version: 1.0
 Release: 1%{?dist}
 Summary: Ansible playbook to add text to a file
 License: GPL
-Source0: ansible-playbook-example.tar.gz
+Source0: testrpm.tar.gz
 BuildArch: noarch
 
 %description
