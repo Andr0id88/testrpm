@@ -47,7 +47,7 @@ jobs:
           package: ${{ env.PKG_NAME }}
           package_root: '.'
           version: ${{ github.ref_name }}
-          arch: ${{ env.ARCH }}            # Make sure arch is set to noarch if applicable
+          arch: 'noarch'
           maintainer: 'Your Name'
           vendor: 'Your Vendor Name'
           desc: 'Ansible playbook to add text to a file'
